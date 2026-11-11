@@ -11,6 +11,7 @@ The system uses two custom classes to manage user relationships: a Person class 
 - Handle errors when connecting non-existent users
 - Print the entire network structure
 - Prevent duplicate users
+- Prevent duplicate friendship links
 
 ## Classes
 
@@ -70,8 +71,8 @@ network.add_friendship("Jordan", "Taylor")  # Error: Taylor doesn't exist
 
 network.print_network()
 '''
-Alex: Jordan, Morgan
-Jordan: Alex
-Morgan: Alex
+Alex is friends with: Jordan, Morgan
+Jordan is friends with: Alex
+Morgan is friends with: Alex
 '''
 ```

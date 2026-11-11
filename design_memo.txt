@@ -1,0 +1,25 @@
+A graph is a natural structure for a social network because it represents
+people as vertices and friendships as edges. A friendship can connect any
+two people, and each person can have many connections, so the structure
+models mutual relationships without imposing a hierarchy. It also makes
+graph operations, such as finding a person's friends or exploring connections
+through friends, straightforward to describe.
+
+A list can store people, but it does not directly represent which pairs are
+connected. Finding a person's friends would require separate relationship
+data or repeated searches, and keeping those relationships consistent would
+be harder. A tree is also a poor fit because it normally organizes data in a
+hierarchy and limits how nodes connect. Social networks allow cycles, shared
+friends, and many-to-many relationships, none of which fit a tree's usual
+parent-child structure.
+
+This implementation uses an adjacency list: every Person stores a list of
+their friends. Adding a person is efficient on average because people are
+stored in a dictionary by name. Adding a friendship updates two friend lists;
+checking for an existing edge scans those lists, so the work depends on the
+person's number of friends rather than the total size of the network. Printing
+the network visits every person and each listed friendship, taking time
+proportional to the number of people plus the number of friendship links.
+Compared with an adjacency matrix, this representation uses less space for a
+sparse network, but checking whether two people are friends is not constant
+time: it requires searching a friend's list.
